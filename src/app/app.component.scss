@@ -1,0 +1,18 @@
+:host {
+
+  $app-top-bar-height: 64px;
+  $app-bottom-bar-height: 48px;
+
+  app-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  main {
+    height: calc(100% - #{$app-top-bar-height + $app-bottom-bar-height});
+    padding: 1em;
+  }
+}

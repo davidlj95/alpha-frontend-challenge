@@ -1,0 +1,17 @@
+<mat-card class="mat-elevation-z0" *ngIf="thought; else noThought">
+  <mat-card-title>{{ thought.title }}</mat-card-title>
+  <mat-card-subtitle>{{ thought.date.toLocaleString() }}</mat-card-subtitle>
+  <mat-card-subtitle>{{ thought.mood }}</mat-card-subtitle>
+  <mat-card-content>{{ thought.description }}</mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button color="primary" [routerLink]="['..']">Go back</button>
+  </mat-card-actions>
+</mat-card>
+<ng-template #noThought>
+  <mat-card class="mat-elevation-z0">
+    <mat-card-title>Whooops! No thought here</mat-card-title>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" [routerLink]="['..']">Go back</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-template>

@@ -1,0 +1,26 @@
+<ng-container *ngIf="(thoughts$ | async) as thoughts; else thoughtsNotLoaded">
+  <ng-container *ngIf="!thoughts.length">
+    <mat-card>
+      <mat-card-title>
+        There are no thoughts yet
+      </mat-card-title>
+      <mat-card-subtitle>
+        Feel free to share them once you are ready
+      </mat-card-subtitle>
+      <mat-card-content>
+        You can share one by click the "Add" button below
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+  <mat-card *ngFor="let thought of thoughts">
+    <mat-card-title>{{ thought.title }}</mat-card-title>
+    <mat-card-subtitle>{{ thought.date.toLocaleString() }}</mat-card-subtitle>
+    <mat-card-actions>
+      <button mat-flat-button color="primary" [routerLink]="['..', thought.id]">View thought</button>
+    </mat-card-actions>
+  </mat-card>
+  <app-thought-add-button></app-thought-add-button>
+</ng-container>
+<ng-template #thoughtsNotLoaded>
+  There was a problem fetching the thoughts back :(
+</ng-template>
